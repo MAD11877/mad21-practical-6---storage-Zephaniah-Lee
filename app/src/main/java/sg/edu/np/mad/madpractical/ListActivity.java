@@ -24,21 +24,21 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         DBHandler db = new DBHandler(this);
-        userList = db.getUser();
+
 
         //userList = new ArrayList<>();
 
         //To populate the database (only use for the first time)
-//        for(int i=0; i<20; i++)
-//        {
-//            User u = new User();
-//            u.name = "Name" + new Random().nextInt();
-//            u.description = "Description " + new Random().nextInt();
-//            u.followed = new Random().nextInt()%2 == 0;
-//            //userList.add(u);
-//            db.addUser(u);
-//        }
-
+        for(int i=0; i<20; i++)
+        {
+            User u = new User();
+            u.name = "Name" + new Random().nextInt();
+            u.description = "Description " + new Random().nextInt();
+            u.followed = new Random().nextInt()%2 == 0;
+            //userList.add(u);
+            db.addUser(u);
+        }
+        userList = db.getUser();
 
         RecyclerView rv = findViewById(R.id.rv);
         ItemsAdapter itemsAdapter = new ItemsAdapter(userList);
